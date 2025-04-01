@@ -1,0 +1,539 @@
+/* Global Styles */
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom, #1a1a1a, #003366);
+}
+
+/* Navbar */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 51, 102, 0.9);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 85%, 0 100%);
+}
+
+#navbar.scrolled {
+    background-color: #003366;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#navbar .navbar-brand,
+#navbar .nav-link {
+    color: #fff;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+}
+
+#navbar .nav-link:hover {
+    color: #00cccc;
+}
+
+#navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #00cccc;
+    transition: width 0.3s ease;
+}
+
+#navbar .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Triangular Sections */
+.tri-section {
+    position: relative;
+    padding: 4rem 2rem;
+    color: #fff;
+    overflow: hidden;
+    clip-path: polygon(50% 0, 100% 20%, 100% 100%, 0 100%, 0 20%);
+    margin-bottom: -2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.tri-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tri-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(60deg, rgba(0, 204, 204, 0.1), transparent);
+    z-index: -1;
+}
+
+/* Header (Index) */
+#header {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #003366 50%, #8a4af3 100%);
+    margin-top: 70px;
+}
+
+#header .header-split {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+}
+
+#header .header-left {
+    text-align: left;
+}
+
+#header .name {
+    font-size: 4rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #00cccc;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+#header .name:hover {
+    color: #8a4af3;
+    animation: glitch 0.3s linear infinite;
+}
+
+#header .tagline {
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    margin-top: 0.5rem;
+    transition: opacity 0.5s ease;
+}
+
+#header .header-right {
+    text-align: center;
+    position: relative;
+}
+
+#header .btn-primary {
+    background: linear-gradient(45deg, #00cccc, #8a4af3);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#header .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 204, 204, 0.5);
+}
+
+#header .cursor-effect {
+    width: 20px;
+    height: 20px;
+    background: #00cccc;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: pulse 2s infinite;
+    opacity: 0.3;
+}
+
+/* About Section */
+#aboutMe {
+    background: linear-gradient(to bottom, #1a1a1a, #003366);
+}
+
+#aboutMe .content-card {
+    padding: 2rem;
+    clip-path: polygon(50% 0, 100% 15%, 100% 100%, 0 100%, 0 15%);
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#aboutMe h2 {
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #00cccc;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#aboutMe .tri-accent {
+    width: 0;
+    height: 0;
+    border-left: 40px solid transparent;
+    border-right: 40px solid transparent;
+    border-bottom: 20px solid #00cccc;
+    margin: 0 auto 1rem;
+}
+
+#aboutMe p {
+    font-size: 1.1rem;
+    color: #e5e7eb;
+}
+
+/* Skills Section */
+#skills {
+    background: linear-gradient(to bottom, #003366, #1a1a1a);
+}
+
+#skills h2 {
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: #00cccc;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+#skills .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+#skills .skill-tile {
+    padding: 2rem;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    width: 150px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#skills .skill-tile:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 204, 204, 0.5);
+}
+
+#skills .skill-tile i {
+    margin-bottom: 0.75rem;
+}
+
+#skills .skill-tile p {
+    font-size: 1rem;
+    color: #fff;
+    margin: 0;
+}
+
+/* Portfolio Header */
+#portfolio-header {
+    min-height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8) 0%, rgba(0, 51, 102, 0.8) 50%, rgba(138, 74, 243, 0.8) 100%), url('assets/pacifictraisl.png') center/cover no-repeat;
+    margin-top: 70px;
+}
+
+/* Projects Section */
+#projects {
+    background: linear-gradient(to bottom, #003366, #1a1a1a);
+}
+
+#projects .container {
+    padding-top: 6rem;
+}
+
+#projects .image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    height: 300px;
+}
+
+#projects .image-container:hover {
+    transform: scale(1.05);
+}
+
+#projects .image-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease;
+}
+
+#projects .image-container:hover img {
+    opacity: 0.7;
+}
+
+#projects .project-info {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 51, 102, 0.8);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+#projects .image-container:hover .project-info {
+    opacity: 1;
+}
+
+#projects .project-info h3 {
+    font-size: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #00cccc;
+    margin-bottom: 0.5rem;
+}
+
+#projects .project-info p {
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    color: #e5e7eb;
+    margin: 0;
+}
+
+/* Contact Section */
+#contact {
+    background: linear-gradient(to bottom, #003366, #1a1a1a);
+    margin-top: 70px;
+}
+
+#contact .container {
+    max-width: 600px;
+}
+
+#contact .contact-form {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+}
+
+#contact .form-label {
+    font-family: 'Montserrat', sans-serif;
+    color: #00cccc;
+    font-size: 1.2rem;
+}
+
+#contact .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    padding: 0.75rem;
+    transition: box-shadow 0.3s ease;
+}
+
+#contact .form-control:focus {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 10px rgba(0, 204, 204, 0.5);
+    color: #fff;
+}
+
+#contact .form-control::placeholder {
+    color: #e5e7eb;
+    opacity: 0.7;
+}
+
+#contact .btn-primary {
+    background: linear-gradient(45deg, #00cccc, #8a4af3);
+    border: none;
+    padding: 1rem;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 204, 204, 0.5);
+}
+
+/* Footer */
+#footer {
+    background: #003366;
+    clip-path: polygon(50% 0, 100% 20%, 100% 100%, 0 100%, 0 20%);
+    margin-bottom: 0;
+}
+
+/* Animations */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(2px, -2px);
+    }
+
+    60% {
+        transform: translate(-2px, 0);
+    }
+
+    80% {
+        transform: translate(2px, 0);
+    }
+
+    100% {
+        transform: translate(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+
+    #header .name,
+    #portfolio-header .name,
+    #contact .name {
+        font-size: 2.5rem;
+    }
+
+    #header .tagline,
+    #portfolio-header .tagline,
+    #contact .tagline {
+        font-size: 1.2rem;
+    }
+
+    #header .btn-primary {
+        padding: 0.75rem 2rem;
+        font-size: 1rem;
+    }
+
+    .tri-section {
+        padding: 3rem 1rem;
+    }
+
+    #aboutMe h2,
+    #skills h2 {
+        font-size: 2rem;
+    }
+
+    #skills .skill-tile {
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        width: 120px;
+        padding: 2rem;
+    }
+
+    #skills .skill-tile i {
+        font-size: 2rem;
+    }
+
+    #skills .skill-tile p {
+        font-size: 0.9rem;
+    }
+
+    #projects .container {
+        padding-top: 4rem;
+    }
+
+    #projects .image-container {
+        height: 200px;
+    }
+
+    #projects .project-info h3 {
+        font-size: 1.25rem;
+    }
+
+    #projects .project-info p {
+        font-size: 0.9rem;
+    }
+
+    #contact .contact-form {
+        padding: 1.5rem;
+    }
+
+    #contact .btn-primary {
+        padding: 0.75rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+
+    #header .header-split,
+    #portfolio-header .container,
+    #contact .container {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1rem;
+    }
+
+    #skills .skill-tile {
+        width: 100px;
+        padding: 1.5rem;
+    }
+
+    #skills .skill-tile i {
+        font-size: 1.8rem;
+    }
+
+    #skills .skill-tile p {
+        font-size: 0.85rem;
+    }
+
+    #projects .col-6 {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    #projects .container {
+        padding-top: 3rem;
+    }
+
+    #projects .image-container {
+        height: 300px;
+    }
+}
