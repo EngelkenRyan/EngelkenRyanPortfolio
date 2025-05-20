@@ -261,18 +261,22 @@ body {
 /* Projects Section */
 #projects {
     background: linear-gradient(to bottom, #003366, #1a1a1a);
+    padding-top: 8rem;
+    margin-top: 70px;
 }
 
 #projects .container {
-    padding-top: 6rem;
+    padding-top: 2rem;
 }
 
 #projects .image-container {
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     border-radius: 10px;
     transition: transform 0.3s ease;
-    height: 300px;
+    height: auto;
+    max-height: 300px;
+    aspect-ratio: 4 / 3;
 }
 
 #projects .image-container:hover {
@@ -305,6 +309,9 @@ body {
     align-items: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    padding: 1rem;
+    overflow-y: auto;
+    text-align: center;
 }
 
 #projects .image-container:hover .project-info {
@@ -319,10 +326,11 @@ body {
 }
 
 #projects .project-info p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-family: 'Roboto', sans-serif;
     color: #e5e7eb;
     margin: 0;
+    line-height: 1.4;
 }
 
 /* Contact Section */
@@ -453,8 +461,17 @@ body {
     }
 
     .tri-section {
-        padding: 3rem 1rem;
+        position: relative;
+        padding: 4rem 2rem;
+        color: #fff;
+        overflow: visible;
+        clip-path: polygon(50% 0, 100% 10%, 100% 100%, 0 100%, 0 10%);
+        margin-bottom: -2rem;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;   
     }
+
 
     #aboutMe h2,
     #skills h2 {
@@ -536,4 +553,17 @@ body {
     #projects .image-container {
         height: 300px;
     }
+    
+    #projects .project-info h3 {
+            font-size: 1.2rem;
+        }
+    
+    #projects .project-info p {
+            font-size: 0.8rem;
+        }
+    
+    #projects .image-container {
+            max-height: 200px;
+            margin-bottom: 1rem;
+        }
 }
