@@ -62,7 +62,9 @@
             <p class="tagline" id="tagline">Code. Create. Innovate.</p>
           </div>
           <div class="header-right">
-            <a href="portfolio.html" class="btn btn-primary btn-lg">Explore My Work</a>
+            <a href="portfolio.html" class="btn btn-primary btn-lg"
+              >Explore My Work</a
+            >
             <div class="cursor-effect"></div>
           </div>
         </div>
@@ -75,8 +77,21 @@
             <h2>About Me</h2>
             <div class="tri-accent"></div>
             <p>
-              My journey into web development kicked off in high school with an HTML course that lit the spark. I chased that passion through Software Development at Ivy Tech Community College (Fall 2025 grad, 3.4 GPA, Dean’s List) and sharpened my skills at Eleven Fifty Academy’s bootcamp. Now, I’m ready to craft clean, impactful websites and level up as a pro dev.
+              My journey into web development kicked off in high school with an
+              HTML course that lit the spark. I chased that passion through
+              Software Development at Ivy Tech Community College (Fall 2025
+              grad, 3.4 GPA, Dean’s List) and sharpened my skills at Eleven
+              Fifty Academy’s bootcamp. Now, I’m ready to craft clean, impactful
+              websites and level up as a pro dev.
             </p>
+            <div class="center-container">
+              <a
+                href="/Portfolio/assets/Engelken_Ryan_Resume.pdf"
+                download
+                class="btn btn-primary mt-3"
+                >Download My Resume</a
+              >
+            </div>
           </div>
         </div>
       </section>
@@ -127,15 +142,27 @@
         <footer class="text-center text-white">
           <div class="container p-4">
             <section class="mb-4">
-              <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/EngelkenRyan" target="_blank">
+              <a
+                class="btn btn-outline-light btn-floating m-1"
+                href="https://github.com/EngelkenRyan"
+                target="_blank"
+              >
                 <i class="fab fa-github"></i>
               </a>
-              <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/ryan-engelken-504970172/" target="_blank">
+              <a
+                class="btn btn-outline-light btn-floating m-1"
+                href="https://www.linkedin.com/in/ryan-engelken-504970172/"
+                target="_blank"
+              >
                 <i class="fab fa-linkedin"></i>
               </a>
             </section>
             <div class="text-center p-3" id="copyright">
-              © <script>document.write(new Date().getFullYear());</script> Ryan Engelken
+              ©
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              Ryan Engelken
             </div>
           </div>
         </footer>
@@ -157,15 +184,20 @@
     <script>
       const sections = document.querySelectorAll(".tri-section");
       const observer = new IntersectionObserver(
-        (entries) => entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("visible");
-        }),
+        (entries) =>
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) entry.target.classList.add("visible");
+          }),
         { threshold: 0.1 }
       );
       sections.forEach((section) => observer.observe(section));
 
       // Rotating tagline
-      const taglines = ["Code. Create. Innovate.", "Building the Web, One Line at a Time.", "Turning Ideas into Pixels."];
+      const taglines = [
+        "Code. Create. Innovate.",
+        "Building the Web, One Line at a Time.",
+        "Turning Ideas into Pixels.",
+      ];
       let index = 0;
       const taglineElement = document.getElementById("tagline");
       setInterval(() => {
